@@ -84,7 +84,40 @@ document.addEventListener('DOMContentLoaded', () => {
     cartModal.style.display = 'flex';
     updateCartUI();
   });
+// Cart logic
+document.addEventListener('DOMContentLoaded', () => {
+  // ...variables anteriores...
+  const paymentMethod = document.getElementById('payment-method');
+  const finishOrderBtn = document.getElementById('finish-order');
 
+  // ...código previo...
+
+  // Finalizar compra por WhatsApp
+  finishOrderBtn.addEventListener('click', () => {
+    if (cart.length === 0) {
+      alert('El carrito está vacío');
+      return;
+    }
+    // Número de WhatsApp (con código de país, sin signos, ejemplo: 5491133445566)
+    const phone = '5491160424928'; // <-- CAMBIA ESTE NÚMERO POR EL TUYO
+
+    // Construir mensaje
+    let message = '*¡Hola! Quiero confirmar mi compra:*\n';
+    cart.forEach(item => {
+      message += `- ${item.nombre} x${item.qty} ($${item.precio * item.qty})\n`;
+    });
+    const total = cart.reduce((sum, item) => sum + item.precio * item.qty, 0);
+    message += `Total: $${total}\n`;
+    message += `Método de pago: ${paymentMethod.value}\n`;
+    message += '\nMi nombre: \nMi dirección: \n';
+
+    // Codifica el mensaje para URL
+    const encodedMsg = encodeURIComponent(message);
+    window.open(`https://wa.me/${phone}?text=${encodedMsg}`, '_blank');
+  });
+
+  // ...resto del código...
+});
   // Close cart modal
   closeCart.addEventListener('click', () => {
     cartModal.style.display = 'none';
