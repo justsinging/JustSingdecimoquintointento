@@ -150,3 +150,19 @@ footer a {
     grid-template-columns: 1fr;
   }
 }
+#payment-options {
+  margin: 15px 0 10px 0;
+}
+#payment-method {
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-left: 8px;
+}
+#finish-order {
+  background: #25d366;
+  margin-bottom: 12px;
+}
+#finish-order:hover {
+  background: #128c7e;
+}
