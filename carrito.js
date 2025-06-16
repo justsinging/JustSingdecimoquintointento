@@ -98,15 +98,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Datos del formulario
     const datos = {
-      nombre: document.getElementById('nombre').value.trim(),
-      apellido: document.getElementById('apellido').value.trim(),
-      provincia: document.getElementById('provincia').value.trim(),
-      localidad: document.getElementById('localidad').value.trim(),
-      direccion: document.getElementById('direccion').value.trim(),
-      codigoPostal: document.getElementById('codigo-postal').value.trim(),
-      correo: document.getElementById('correo').value.trim(),
-      celular: document.getElementById('celular').value.trim(),
-      observaciones: document.getElementById('observaciones').value.trim(),
+      Nombre: document.getElementById('nombre').value.trim(),
+      Apellido: document.getElementById('apellido').value.trim(),
+      Provincia: document.getElementById('provincia').value.trim(),
+      Localidad: document.getElementById('localidad').value.trim(),
+      Direccion: document.getElementById('direccion').value.trim(),
+      Piso y Dpto: document.getElementById('piso-dpto').value.trim(),
+      CodigoPostal: document.getElementById('codigo-postal').value.trim(),
+      Correo: document.getElementById('correo').value.trim(),
+      Celular: document.getElementById('celular').value.trim(),
+      Observaciones: document.getElementById('observaciones').value.trim(),
     };
 
     // Construir mensaje
@@ -124,6 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
     message += `Provincia: ${datos.provincia}\n`;
     message += `Localidad: ${datos.localidad}\n`;
     message += `Dirección: ${datos.direccion}\n`;
+    message += `Piso y Dpto: ${datos.pisodpto}\n`;
     message += `Código Postal: ${datos.codigoPostal}\n`;
     message += `Correo electrónico: ${datos.correo}\n`;
     message += `Celular: ${datos.celular}\n`;
