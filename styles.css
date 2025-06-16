@@ -1,117 +1,152 @@
-/* styles.css */
-
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f7f7f7;
-  color: #333;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f9f9f9;
+  color: #222;
 }
-
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
 header {
-  background-color: #000;
-  color: #fff;
-  padding: 1rem;
-  text-align: center;
-  font-size: 2rem;
-  font-weight: bold;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
-
-main {
+.header-container {
   display: flex;
-  flex-wrap: wrap;
-  padding: 1rem;
-  gap: 2rem;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
 }
-
-.productos {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1rem;
-  flex: 1;
+.logo img {
+  height: 50px;
 }
-
-.producto {
-  background-color: white;
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 18px;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+nav ul li a:hover {
+  color: #d94f70;
+}
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.search-bar input {
+  padding: 7px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.search-bar button {
+  padding: 7px 10px;
+  border: none;
+  background: #d94f70;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.hero {
+  background: linear-gradient(90deg, #e6b5c5 0%, #f7eae4 100%);
+  padding: 60px 0 40px 0;
   text-align: center;
-  padding: 1rem;
-  transition: transform 0.2s;
 }
-
+.hero-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.hero h1 {
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+  color: #d94f70;
+}
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 22px;
+}
+.btn {
+  padding: 10px 24px;
+  background: #d94f70;
+  color: #fff;
+  border: none;
+  border-radius: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-decoration: none;
+}
+.btn:hover {
+  background: #ae3450;
+}
+.productos {
+  padding: 40px 0;
+}
+.productos h2 {
+  text-align: center;
+  margin-bottom: 32px;
+  color: #d94f70;
+}
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+}
+.producto {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 18px;
+  text-align: center;
+  transition: box-shadow 0.2s;
+}
 .producto:hover {
-  transform: scale(1.03);
+  box-shadow: 0 4px 16px rgba(217,79,112,0.10);
 }
-
 .producto img {
   width: 100%;
-  height: auto;
-  border-radius: 1rem;
+  height: 170px;
+  object-fit: contain;
+  margin-bottom: 12px;
 }
-
 .producto h3 {
-  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
 }
-
-.producto p {
-  margin: 0.5rem 0;
-  font-weight: bold;
+.producto .precio {
+  color: #d94f70;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
 }
-
-.producto button {
-  background-color: #000;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition: background-color 0.2s;
+footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0 10px 0;
+  margin-top: 40px;
 }
-
-.producto button:hover {
-  background-color: #444;
+footer a {
+  color: #f7eae4;
+  text-decoration: underline;
 }
-
-.carrito {
-  position: sticky;
-  top: 1rem;
-  background-color: #fff;
-  border-radius: 1rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-  width: 300px;
-  max-height: 80vh;
-  overflow-y: auto;
-}
-
-.carrito h2 {
-  margin-top: 0;
-}
-
-.carrito ul {
-  list-style: none;
-  padding: 0;
-}
-
-.carrito li {
-  margin-bottom: 0.5rem;
-}
-
-#finalizar-compra {
-  margin-top: 1rem;
-  width: 100%;
-  background-color: #000;
-  color: white;
-  border: none;
-  padding: 0.75rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.2s;
-}
-
-#finalizar-compra:hover {
-  background-color: #444;
+@media (max-width: 600px) {
+  .header-container, .productos-grid {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .productos-grid {
+    grid-template-columns: 1fr;
+  }
 }
