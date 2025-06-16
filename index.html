@@ -49,6 +49,44 @@
   </div>
 </div>
 <!-- ...código posterior... -->
+    <!-- ...código anterior... -->
+<div id="cart-modal" class="cart-modal">
+  <div class="cart-modal-content">
+    <span id="close-cart" class="close">&times;</span>
+    <h2>Carrito de Compras</h2>
+    <div id="cart-items"></div>
+    <div id="cart-total"></div>
+    <div id="payment-options">
+      <label for="payment-method">Selecciona método de pago:</label>
+      <select id="payment-method">
+        <option value="Transferencia bancaria">Transferencia bancaria</option>
+        <option value="MercadoPago">MercadoPago</option>
+        <option value="Efectivo">Efectivo</option>
+      </select>
+    </div>
+    <!-- Formulario de datos del comprador -->
+    <form id="buyer-form" autocomplete="off">
+      <div class="form-row">
+        <input type="text" id="nombre" name="nombre" placeholder="Nombre *" required>
+        <input type="text" id="apellido" name="apellido" placeholder="Apellido *" required>
+      </div>
+      <div class="form-row">
+        <input type="text" id="provincia" name="provincia" placeholder="Provincia *" required>
+        <input type="text" id="localidad" name="localidad" placeholder="Localidad *" required>
+      </div>
+      <input type="text" id="direccion" name="direccion" placeholder="Calle, altura, piso y dpto *" required>
+      <div class="form-row">
+        <input type="text" id="codigo-postal" name="codigo-postal" placeholder="Código Postal *" required>
+        <input type="email" id="correo" name="correo" placeholder="Correo electrónico *" required>
+      </div>
+      <input type="tel" id="celular" name="celular" placeholder="Celular *" required>
+      <textarea id="observaciones" name="observaciones" placeholder="Observaciones"></textarea>
+    </form>
+    <button class="btn" id="finish-order" disabled>Finalizar compra por WhatsApp</button>
+    <button class="btn" id="clear-cart">Vaciar carrito</button>
+  </div>
+</div>
+<!-- ...código posterior... -->
   </header>
 
   <!-- Hero Banner -->
