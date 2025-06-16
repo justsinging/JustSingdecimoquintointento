@@ -7,6 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const cartTotal = document.getElementById('cart-total');
   const cartCount = document.getElementById('cart-count');
   const clearCartBtn = document.getElementById('clear-cart');
+  // Cart logic
+document.addEventListener('DOMContentLoaded', () => {
+  // ...variables anteriores...
+  const paymentMethod = document.getElementById('payment-method');
+  const finishOrderBtn = document.getElementById('finish-order');
+  const buyerForm = document.getElementById('buyer-form');
+
 
   // Cart state
   let cart = [];
@@ -51,6 +58,81 @@ document.addEventListener('DOMContentLoaded', () => {
       cartTotal.textContent = 'Total: $' + total;
     }
   }
+
+  // Validar campos obligatorios
+  function checkBuyerFormValidity() {
+    // Todos los campos requeridos
+    const requiredIds = [
+      "nombre", "apellido", "provincia", "localidad", "direccion",
+      "codigo-postal", "correo", "celular"
+    ];
+    let valid = true;
+    requiredIds.forEach(id => {
+      const input = document.getElementById(id);
+      if (!input.value.trim()) valid = false;
+    });
+    // Además, el carrito debe tener productos
+    if (cart.length === 0) valid = false;
+    finishOrderBtn.disabled = !valid;
+  }
+
+  // Eventos de validación
+  buyerForm.querySelectorAll('input, textarea').forEach(input => {
+    input.addEventListener('input', checkBuyerFormValidity);
+  });
+
+  // También al abrir el modal
+  function updateCartUI() {
+    // ...código anterior...
+    checkBuyerFormValidity();
+  }
+
+  // Finalizar compra por WhatsApp
+  finishOrderBtn.addEventListener('click', () => {
+    if (cart.length === 0) {
+      alert('El carrito está vacío');
+      return;
+    }
+    // Número de WhatsApp (con código de país, sin signos, ejemplo: 5491133445566)
+    const phone = '5491133445566'; // <-- CAMBIA ESTE NÚMERO POR EL TUYO
+
+    // Datos del formulario
+    const datos = {
+      nombre: document.getElementById('nombre').value.trim(),
+      apellido: document.getElementById('apellido').value.trim(),
+      provincia: document.getElementById('provincia').value.trim(),
+      localidad: document.getElementById('localidad').value.trim(),
+      direccion: document.getElementById('direccion').value.trim(),
+      codigoPostal: document.getElementById('codigo-postal').value.trim(),
+      correo: document.getElementById('correo').value.trim(),
+      celular: document.getElementById('celular').value.trim(),
+      observaciones: document.getElementById('observaciones').value.trim(),
+    };
+
+    // Construir mensaje
+    let message = '*¡Hola! Quiero confirmar mi compra:*\n';
+    cart.forEach(item => {
+      message += `- ${item.nombre} x${item.qty} ($${item.precio * item.qty})\n`;
+    });
+    const total = cart.reduce((sum, item) => sum + item.precio * item.qty, 0);
+    message += `Total: $${total}\n`;
+    message += `Método de pago: ${paymentMethod.value}\n\n`;
+
+    message += `*Datos del comprador:*\n`;
+    message += `Nombre: ${datos.nombre}\n`;
+    message += `Apellido: ${datos.apellido}\n`;
+    message += `Provincia: ${datos.provincia}\n`;
+    message += `Localidad: ${datos.localidad}\n`;
+    message += `Dirección: ${datos.direccion}\n`;
+    message += `Código Postal: ${datos.codigoPostal}\n`;
+    message += `Correo electrónico: ${datos.correo}\n`;
+    message += `Celular: ${datos.celular}\n`;
+    if (datos.observaciones) message += `Observaciones: ${datos.observaciones}\n`;
+
+    // Codifica el mensaje para URL
+    const encodedMsg = encodeURIComponent(message);
+    window.open(`https://wa.me/${phone}?text=${encodedMsg}`, '_blank');
+  });
 
   // Add product to cart
   function addToCart(product) {
