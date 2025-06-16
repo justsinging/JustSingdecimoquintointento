@@ -27,6 +27,28 @@
         </ul>
       </nav>
     </div>
+    <!-- ...código anterior... -->
+<!-- Carrito Modal -->
+<div id="cart-modal" class="cart-modal">
+  <div class="cart-modal-content">
+    <span id="close-cart" class="close">&times;</span>
+    <h2>Carrito de Compras</h2>
+    <div id="cart-items"></div>
+    <div id="cart-total"></div>
+    <!-- Opciones de pago -->
+    <div id="payment-options">
+      <label for="payment-method">Selecciona método de pago:</label>
+      <select id="payment-method">
+        <option value="Transferencia bancaria">Transferencia bancaria</option>
+        <option value="MercadoPago">MercadoPago</option>
+        <option value="Efectivo">Efectivo</option>
+      </select>
+    </div>
+    <button class="btn" id="finish-order">Finalizar compra por WhatsApp</button>
+    <button class="btn" id="clear-cart">Vaciar carrito</button>
+  </div>
+</div>
+<!-- ...código posterior... -->
   </header>
 
   <!-- Hero Banner -->
