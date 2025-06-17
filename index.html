@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Just Sing</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- Header -->
+<header>
+<div class="container header-container">
+<a href="/" class="logo">
+<!-- Puedes reemplazar esto por tu logo -->
+<img src="logo-placeholder.png" alt="Just Sing 2 Logo">
+</a>
+<form class="search-bar">
+<input type="text" placeholder="Buscar productos...">
+<button type="submit">🔍</button>
+</form>
+<nav>
+<ul>
+<li><a href="#">Inicio</a></li>
+<li><a href="#">Contacto</a></li>
+<li><a href="#">Carrito 🛒</a></li>
+</ul>
+</nav>
+</div>
+<!-- ...código anterior... -->
+<!-- Carrito Modal -->
+<div id="cart-modal" class="cart-modal">
+<div class="cart-modal-content">
+<span id="close-cart" class="close">×</span>
+<h2>Carrito de Compras</h2>
+<div id="cart-items"></div>
+<div id="cart-total"></div>
+<!-- Opciones de pago -->
+<div id="payment-options">
+<label for="payment-method">Selecciona método de pago:</label>
+<select id="payment-method">
+<option value="Transferencia bancaria">Transferencia bancaria</option>
+<option value="MercadoPago">MercadoPago</option>
+</select>
+</div>
+<button class="btn" id="finish-order">Finalizar compra por WhatsApp</button>
+<button class="btn" id="clear-cart">Vaciar carrito</button>
+</div>
+</div>
+<!-- ...código posterior... -->
+<!-- ...código anterior... -->
+<div id="cart-modal" class="cart-modal">
+<div class="cart-modal-content">
+<span id="close-cart" class="close">×</span>
+<h2>Carrito de Compras</h2>
+<div id="cart-items"></div>
+<div id="cart-total"></div>
+<div id="payment-options">
+<label for="payment-method">Selecciona método de pago:</label>
+<select id="payment-method">
+<option value="Transferencia bancaria">Transferencia bancaria</option>
+<option value="MercadoPago">MercadoPago</option>
+</select>
+</div>
+<!-- Formulario de datos del comprador -->
+<form id="buyer-form" autocomplete="off">
+<div class="form-row">
+<input type="text" id="nombre" name="nombre" placeholder="Nombre *" required>
+<input type="text" id="apellido" name="apellido" placeholder="Apellido *" required>
+</div>
+<div class="form-row">
+<input type="text" id="provincia" name="provincia" placeholder="Provincia *" required>
+<input type="text" id="localidad" name="localidad" placeholder="Localidad *" required>
+</div>
+<input type="text" id="direccion" name="direccion" placeholder="Calle y altura *" required>
+<div class="form-row">
+</div>
+<input type="text" id="Piso y Dpto" name="Piso y Dpto" placeholder="Piso y dpto *"
+<div class="form-row">
+<input type="text" id="codigo-postal" name="codigo-postal" placeholder="Código Postal *" required>
+<input type="email" id="correo" name="correo" placeholder="Correo electrónico *" required>
+</div>
+<input type="tel" id="celular" name="celular" placeholder="Celular *" required>
+<textarea id="observaciones" name="observaciones" placeholder="Observaciones"></textarea>
+</form>
+<button class="btn" id="finish-order" disabled>Finalizar compra por WhatsApp</button>
+<button class="btn" id="clear-cart">Vaciar carrito</button>
+</div>
+</div>
+<!-- ...código posterior... -->
+</header>
+
+<!-- Hero Banner -->
+<section class="hero">
+<div class="container hero-content">
+<h1>Karaoke para todos</h1>
+<p>¡Descubre nuestros productos y arma tu fiesta!</p>
+<a href="#" class="btn">Ver catálogo</a>
+</div>
+</section>
+
+<!-- Productos destacados -->
+<section class="productos">
+<div class="container">
+<h2>Productos Destacados</h2>
+<div class="productos-grid">
+<div class="producto">
+<img src="https://i.imgur.com/MTxPBeC.jpeg" alt="Producto 1">
+<h3>Bolsa Florero</h3>
+<p class="precio">$20.000</p>
+<button class="btn">Agregar al carrito</button>
+</div>
+<div class="producto">
+<img src="https://i.imgur.com/YXYUHHr.jpeg" alt="Producto 2">
+<h3>Bolsa Frutis</h3>
+<p class="precio">$18.000</p>
+<button class="btn">Agregar al carrito</button>
+</div>
+<div class="producto">
+<img src="https://i.imgur.com/z1EjOsG.jpeg" alt="Producto 3">
+<h3>Bolsa Olivo</h3>
+<p class="precio">$13.000</p>
+<button class="btn">Agregar al carrito</button>
+</div>
+<div class="producto">
+<img src="https://i.imgur.com/B6E9D7j.jpeg" alt="Producto 4">
+<h3>Bolsa Lavanda</h3>
+<p class="precio">$16.500</p>
+<button class="btn">Agregar al carrito</button>
+</div>
+<div class="producto">
+<img src="https://i.imgur.com/BTUjfH7.jpeg" alt="Producto 5">
+<h3>Bolsa 13</h3>
+<p class="precio">$13.000</p>
+<button class="btn">Agregar al carrito</button>
+</div>
+<div class="producto">
+<img src="https://i.imgur.com/BTUjfH7.jpeg" alt="Producto 6">
+<h3>Bolsa Mida</h3>
+<p class="precio">$18.500</p>
+<button class="btn">Agregar al carrito</button>
+</div>
+<div class="producto">
+<img src="https://i.imgur.com/bMZdpKo.jpeg" alt="Producto 7">
+<h3>Bolsa Mujer</h3>
+<p class="precio">$16.500</p>
+<button class="btn">Agregar al carrito</button>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer>
+<div class="container">
+<p>© 2025 Just Sing 2 - Todos los derechos reservados.</p>
+<p>Síguenos en
+<a href="#">Instagram</a> |
+<a href="#">Facebook</a>
+</p>
+</div>
+</footer>
+</body>
+</html>
